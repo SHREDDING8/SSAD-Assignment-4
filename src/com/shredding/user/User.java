@@ -1,6 +1,9 @@
 package com.shredding.user;
 
+import com.shredding.VirtualDatabase.VirtualDatabase;
 import com.shredding.buying.Product.Product;
+
+import java.util.ArrayList;
 
 public class User {
     private static int id_private;
@@ -13,9 +16,9 @@ public class User {
 
     public Product rentedBike;
     public int rentedDays;
-    public int[] cart;
+    public ArrayList<Integer> cart = new ArrayList<Integer>();
 
-    public User(String name,String password,String address,String CreditCard){
+    public User(String name, String password, String address, String CreditCard) {
         id_private++;
         id = id_private;
         this.Name = name;
@@ -24,11 +27,25 @@ public class User {
         this.CreditCard = CreditCard;
         this.Balance = 0;
     }
-    public void deposit(double amount){
-        DepositService.deposit(this,amount);
+
+    public void deposit(double amount) {
+        DepositService.deposit(this, amount);
     }
 
-//    public addToCart
-//    public void buyProductsInCart()
+    public void addToCart(int ProductId) {
+        cart.add(ProductId);
+    }
+
+    public void buyProductsInCart() {
+        for (Integer integer : cart) {
+            Product someProduct = VirtualDatabase.getProduct(integer);
+            assert someProduct != null;
+            if (Balance >= someProduct.price) {
+                System.out.println("Buying of " + someProduct.name + " successful");
+            } else {
+                System.out.println("Your balance is smaller than price of " + someProduct.name);
+            }
+        }
+    }
 
 }

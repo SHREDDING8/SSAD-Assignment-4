@@ -11,8 +11,8 @@ public class RegistrationProxy {
     public static boolean registerUser(UserRegistrationForm form){
         ArrayList<User> users = VirtualDatabase.getAllUsers();
 
-        for (int i = 0; i < users.size(); i++) {
-            if(form.name.equals(users.get(i)) ){
+        for (User user : users) {
+            if (form.name.equals(user.Name)) {
                 return false;
             }
         }
@@ -23,8 +23,8 @@ public class RegistrationProxy {
     public static boolean registerAdmin(AdminRegistrationForm form){
         ArrayList<User> users = VirtualDatabase.getAllUsers();
 
-        for (int i = 0; i < users.size(); i++) {
-            if(form.name.equals(users.get(i)) ){
+        for (User user : users) {
+            if (form.name.equals(user.Name)) {
                 return false;
             }
         }

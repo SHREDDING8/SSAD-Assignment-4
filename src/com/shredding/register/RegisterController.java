@@ -6,9 +6,9 @@ public class RegisterController{
 
 
     public boolean registerUser(UserRegistrationForm form){
-        return RegistrationService.registerUser(form);
+        return RegistrationProxy.registerUser(form);
     }
     public boolean registerAdmin(AdminRegistrationForm form){
-        return RegistrationService.registerAdmin(form);
+        return RegistrationProxy.registerAdmin(form);
     }
 }

@@ -6,7 +6,7 @@ import com.shredding.user.User;
 import java.util.ArrayList;
 
 public class RegistrationProxy {
-    private RegistartionInterface service;
+    private static final RegistrationService service = new RegistrationService();
 
     public static boolean registerUser(UserRegistrationForm form){
         ArrayList<User> users = VirtualDatabase.getAllUsers();
@@ -16,6 +16,7 @@ public class RegistrationProxy {
                 return false;
             }
         }
+        service.registerUser(form);
         return true;
 
     }
@@ -27,7 +28,11 @@ public class RegistrationProxy {
                 return false;
             }
         }
-        return true;
+        if(checkAccessToCreateAdmin(form.passwordToCreateAdmin)){
+            service.registerAdmin(form);
+            return true;
+        }
+        return false;
     }
 
     public static boolean checkAccessToCreateAdmin(String password){

@@ -13,7 +13,7 @@ public class User {
 
     public Product rentedBike;
     public int rentedDays;
-//    public Product[] Cart;
+    public int[] cart;
 
     public User(String name,String password,String address,String CreditCard){
         id_private++;

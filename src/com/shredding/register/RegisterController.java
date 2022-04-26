@@ -1,22 +1,14 @@
 package com.shredding.register;
 
-import com.shredding.user.User;
 
 public class RegisterController{
     private RegistartionInterface regInterface;
 
 
-    public RegisterController(){
-
+    public boolean registerUser(UserRegistrationForm form){
+        return RegistrationService.registerUser(form);
     }
-
-
-
-    public User registerUser(RegistrationForm form){
-        return null;
+    public boolean registerAdmin(AdminRegistrationForm form){
+        return RegistrationService.registerAdmin(form);
     }
-    public User registerAdmin(RegistrationForm form){
-        return null;
-    }
-
 }

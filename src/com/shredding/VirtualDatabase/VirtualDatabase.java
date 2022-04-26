@@ -39,8 +39,18 @@ public class VirtualDatabase {
         return null;
     }
 
+    public static ArrayList<User> getAllUsers(){
+        return users;
+    }
+    public static ArrayList<Product> getAllProducts(){
+        return products;
+    }
+
     public static void addProduct(String name, String[] features, double price, Category category) {
         products.add(Factory.createProduct(name,features,price,category));
+    }
+    public static void addUser(User user){
+        users.add(user);
     }
 
 }

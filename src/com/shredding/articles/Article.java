@@ -17,6 +17,7 @@ public class Article {
     }
 
     public void comment(User user,String content){
+        // adding new comment to this article
         Comment newComment = new Comment(user,content,this);
         Comments.add(newComment);
     }

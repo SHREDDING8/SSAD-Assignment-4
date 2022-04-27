@@ -9,6 +9,7 @@ public class RegistrationProxy {
     private static final RegistrationService service = new RegistrationService();
 
     public static boolean registerUser(UserRegistrationForm form){
+        // checking uniq user
         ArrayList<User> users = VirtualDatabase.getAllUsers();
 
         for (User user : users) {
@@ -21,6 +22,7 @@ public class RegistrationProxy {
 
     }
     public static boolean registerAdmin(AdminRegistrationForm form){
+        // checking uniq user
         ArrayList<User> users = VirtualDatabase.getAllUsers();
 
         for (User user : users) {
@@ -28,6 +30,7 @@ public class RegistrationProxy {
                 return false;
             }
         }
+        // checking password to create admin
         if(checkAccessToCreateAdmin(form.passwordToCreateAdmin)){
             service.registerAdmin(form);
             return true;

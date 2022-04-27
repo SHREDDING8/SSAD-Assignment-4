@@ -6,6 +6,7 @@ import com.shredding.buying.Product.Product;
 
 public class BikeInventoryFactory {
     public static Product createBikeInventory(){
+        // creating some BikeInventory
         return new BikeInventory();
     }
 }

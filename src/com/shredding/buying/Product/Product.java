@@ -9,6 +9,7 @@ public abstract class Product {
     public Category category;
 
     public Product(Category category){
+        // creating product
         id_private++;
         this.id = id_private;
         this.category=category;

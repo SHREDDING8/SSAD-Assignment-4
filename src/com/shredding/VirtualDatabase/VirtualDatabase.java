@@ -8,10 +8,13 @@ import com.shredding.user.User;
 import java.util.ArrayList;
 
 public class VirtualDatabase {
+    // base of products
     private static ArrayList<Product> products = new ArrayList<Product>();
+    // base of users
     private static ArrayList<User> users = new ArrayList<User>();
 
     public static Product getProduct(int ProductId) {
+        // getting product
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).id == ProductId){
                 return products.get(i);
@@ -21,6 +24,7 @@ public class VirtualDatabase {
     }
 
     public static ArrayList<Product> getProductRange(int[] ProductsId) {
+        // getting several products
         ArrayList<Product> productsRange = new ArrayList<Product>();
 
         for (int i = 0; i < ProductsId.length; i++) {
@@ -36,6 +40,12 @@ public class VirtualDatabase {
     }
 
     public static User getUser(int userId) {
+        // getting user from database
+        for (User user : users) {
+            if (user.id == userId) {
+                return user;
+            }
+        }
         return null;
     }
 
@@ -47,6 +57,7 @@ public class VirtualDatabase {
     }
 
     public static void addProduct(String name, String[] features, double price, Category category) {
+        // creating and adding some product to database
         products.add(Factory.createProduct(name,features,price,category));
     }
     public static void addUser(User user){

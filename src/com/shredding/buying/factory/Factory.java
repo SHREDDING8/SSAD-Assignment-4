@@ -4,7 +4,9 @@ import com.shredding.buying.Product.Category;
 import com.shredding.buying.Product.Product;
 
 public class Factory {
+    // pattern Factory
     public static Product createProduct(String name, String[] features, double price, Category category){
+        // we get request from user to create some product and creating it
         Product newProduct;
         switch (category){
             case Bike -> newProduct = BikeFactory.createBike();
